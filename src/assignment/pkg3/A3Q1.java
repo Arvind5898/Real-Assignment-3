@@ -20,23 +20,23 @@ public class A3Q1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        // Creating a city 
+
+        // creating a city 
         City kw = new City();
-        
-        // Creating a robot 
+
+        // creating a robot 
         RobotSE bob = new RobotSE(kw, 1, 1, Direction.EAST);
-        
-        // Creating a wall
+
+        // creating a wall
         new Wall(kw, 1, 5, Direction.EAST);
-        
-        // Creating a new thing
+
+        // creating a new thing
         new Thing(kw, 1, 6);
-        
-        // Making bob stop using a while loop
-        while(bob.frontIsClear()){
+
+        // making bob stop using a while loop
+        while (bob.frontIsClear()) {
             bob.move();
-            
+
         }
     }
 }

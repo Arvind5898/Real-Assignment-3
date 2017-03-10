@@ -62,9 +62,7 @@ public class A3Q7 {
         new Wall(kw, 5, 5, Direction.SOUTH);
         new Wall(kw, 5, 4, Direction.SOUTH);
 
-        // commanding bob to move around each block
-
-
+        // commanding bob to move around each o fthe 4 blocks
         for (int a = 0; a < 4; a++) {
 
             for (int i = 0; i < 3; i = i + 1) {

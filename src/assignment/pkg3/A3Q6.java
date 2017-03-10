@@ -47,21 +47,21 @@ public class A3Q6 {
         new Thing(kw, 4, 1);
         new Thing(kw, 4, 1);
         new Thing(kw, 4, 1);
-        
+
         // making bob move onto the path
         bob.move();
-
+        // while bob can pick thing he will turn left and pick up everything
         while (bob.canPickThing()) {
 
             bob.turnLeft();
             bob.pickAllThings();
-
+            // while bob has more than 0 thing in his back pack he will move and place things
             while (bob.countThingsInBackpack() > 0) {
                 bob.move();
                 bob.putThing();
             }
             bob.turnAround();
-
+            // while bob can pick up things he will move
             while (bob.canPickThing()) {
                 bob.move();
             }

@@ -19,15 +19,14 @@ public class A3Q4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        // Making a city 
+
+        // making a city 
         City kw = new City();
-        
-        // Making a robot 
+
+        // making a robot 
         RobotSE bob = new RobotSE(kw, 3, 3, Direction.SOUTH);
-        
-        // Making new walls
-        
+
+        // making new walls
         new Wall(kw, 2, 3, Direction.EAST);
         new Wall(kw, 1, 3, Direction.EAST);
         new Wall(kw, 3, 3, Direction.EAST);
@@ -41,23 +40,21 @@ public class A3Q4 {
         new Wall(kw, 1, 0, Direction.NORTH);
         new Wall(kw, 1, 2, Direction.NORTH);
         new Wall(kw, 1, 3, Direction.NORTH);
-        
-        // Making bob escape
-        while(bob.frontIsClear()){
+
+        // making bob escape
+        while (bob.frontIsClear()) {
             bob.move();
         }
-        while(!bob.frontIsClear()){
+        while (!bob.frontIsClear()) {
             bob.turnLeft();
-            
-            if(bob.frontIsClear()){
-            bob.move();
-            bob.turnRight();
-            
-            }    
+
+            if (bob.frontIsClear()) {
+                bob.move();
+                bob.turnRight();
+
+            }
         }
-         bob.move();
-        
-       
-        
+        bob.move();
+
     }
 }

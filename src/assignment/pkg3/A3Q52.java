@@ -19,13 +19,13 @@ public class A3Q52 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         // making a city 
         City kw = new City();
-        
+
         // making a robot 
         RobotSE bob = new RobotSE(kw, 3, 3, Direction.EAST);
-        
+
         // making new Things
         new Thing(kw, 3, 3);
         new Thing(kw, 3, 3);
@@ -37,12 +37,12 @@ public class A3Q52 {
         new Thing(kw, 3, 3);
         new Thing(kw, 3, 3);
         new Thing(kw, 3, 3);
-        
+
         // making labels for the things
         kw.showThingCounts(true);
-        
+
         // making bob pick up and place things 
-        while(bob.canPickThing()){
+        while (bob.canPickThing()) {
             bob.pickThing();
             bob.move();
             bob.putThing();
@@ -52,7 +52,6 @@ public class A3Q52 {
         }
         // making bob execute his final move
         bob.move();
-        
-        
+
     }
 }

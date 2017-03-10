@@ -21,13 +21,13 @@ public class A3Q3 {
      */
     public static void main(String[] args) {
 
-        // Making a city 
+        // making a city 
         City kw = new City();
 
-        // Making a robot 
+        // making a robot 
         RobotSE bob = new RobotSE(kw, 1, 1, Direction.EAST);
 
-        // Creating new things 
+        // creating new things 
         new Thing(kw, 1, 2);
         new Thing(kw, 2, 2);
         new Thing(kw, 2, 3);
@@ -35,7 +35,7 @@ public class A3Q3 {
         new Thing(kw, 3, 1);
         new Thing(kw, 3, 4);
 
-        // Creating new walls
+        // creating new walls
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 2, 1, Direction.WEST);
         new Wall(kw, 3, 1, Direction.WEST);
@@ -51,31 +51,82 @@ public class A3Q3 {
         new Wall(kw, 2, 4, Direction.EAST);
         new Wall(kw, 1, 4, Direction.EAST);
 
-
-
+        // commanding bob to commence a serpentine shape within the walls (starting on the first line)
         while (bob.frontIsClear()) {
             bob.move();
-            bob.pickAllThings();
-
-
-
+            // bob will pick any things up
+            if (bob.canPickThing()) {
+                bob.pickAllThings();
+            }
             if (!bob.frontIsClear()) {
                 bob.turnRight();
                 bob.move();
                 bob.turnLeft();
+                // bob will pick any things up
+                if (bob.canPickThing()) {
+                    bob.pickAllThings();
+                }
             }
+        }
+        // bob is now on the second line facing a wall therefore he will turnaround and continue
+        while (!bob.frontIsClear()) {
+            bob.turnAround();
+            bob.move();
+            // bob will pick any things up
+            if (bob.canPickThing()) {
+                bob.pickAllThings();
+            }
+        }
+        // commanding bob to travel horizontally across the second line of the 'box'
+        while (bob.frontIsClear()) {
+            bob.move();
+            // bob will pick any things up
+            if (bob.canPickThing()) {
+                bob.pickAllThings();
+            }
+            // once the front is not clear on the second line bob will now move to the final line
+            if (!bob.frontIsClear()) {
+                bob.turnLeft();
+                bob.move();
+                bob.turnLeft();
+                // bob will pick any things up
+                if (bob.canPickThing()) {
+                    bob.pickAllThings();
+                }
+                break;
+            }
+        }
+        // commanding bob to travel horizontally across the third (final) line wihtin the 'box'
+        while (bob.frontIsClear()) {
+            bob.move();
+            // bob will pick any things up
+            if (bob.canPickThing()) {
+                bob.pickAllThings();
+            }
+
             if (!bob.frontIsClear()) {
                 bob.turnAround();
-                bob.move();
+                break;
+            }
+
+        }
+        // commanding bob to retrace his steps horizontally along the third (final) line within the 'box'
+        while (bob.frontIsClear()) {
+            bob.move();
+
+            if (!bob.frontIsClear()) {
+                bob.turnRight();
+                break;
             }
         }
+        // commanding bob to travel vertically back to his original position
+        while (bob.frontIsClear()) {
+            bob.move();
+            if (!bob.frontIsClear()) {
+                bob.turnRight();
+                break;
+            }
 
-        while (!bob.frontIsClear()) {
-            bob.turnLeft();
         }
-
-
-
-
     }
 }
